@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Covid Hospital</string>
+    <string name="please_wait">Mohon tunggu..</string>
+    <string name="detail_activity">Detail Hospital</string>
+    <string name="home">Home</string>
+    <string name="saved">Bookmark</string>
+    <string name="search">Cari..</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="filter">Filter</string>
+    <string name="reference">Rujukan</string>
+    <string name="other">Lainnya</string>
+</resources>
