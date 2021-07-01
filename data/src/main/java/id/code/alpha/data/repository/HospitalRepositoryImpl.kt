@@ -67,17 +67,24 @@ class HospitalRepositoryImpl @Inject constructor(
         return newState.convert()
     }
 
-    override fun getHospital(isSaved: Boolean, textSearch: String?): LiveData<PagedList<Hospital>> {
+    override fun getHospital(isSaved: Boolean, textSearch: String?, type: String?, region: String?): LiveData<PagedList<Hospital>> {
         return LivePagedListBuilder(
-            localDataSource.getHospital(isSaved, textSearch).map {
+            localDataSource.getHospital(isSaved, textSearch, type, region).map {
                 it.convert()
-            }, 20
+            }, 2000
         ).build()
     }
 
     override fun getReferenceHospitalType(): LiveData<PagedList<String>> {
         return LivePagedListBuilder(
             localDataSource.getReferenceHospitalType(),
+            20
+        ).build()
+    }
+
+    override fun getProvinces(): LiveData<PagedList<String>> {
+        return LivePagedListBuilder(
+            localDataSource.getProvinces(),
             20
         ).build()
     }

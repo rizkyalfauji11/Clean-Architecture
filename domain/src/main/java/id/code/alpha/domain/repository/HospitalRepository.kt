@@ -13,6 +13,7 @@ interface HospitalRepository {
 
     suspend fun changeFavoriteHospitalState(data: Hospital?): Hospital?
 
-    fun getHospital(isSaved: Boolean, textSearch: String?): LiveData<PagedList<Hospital>>
+    fun getHospital(isSaved: Boolean, textSearch: String?, type: String?, region: String?): LiveData<PagedList<Hospital>>
     fun getReferenceHospitalType(): LiveData<PagedList<String>>
+    fun getProvinces(): LiveData<PagedList<String>>
 }

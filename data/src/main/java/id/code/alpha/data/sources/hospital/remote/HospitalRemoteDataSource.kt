@@ -16,7 +16,7 @@ import javax.inject.Singleton
 class HospitalRemoteDataSource @Inject constructor(
     @Named(NetworkModule.HOSPITAL_API)
     private val apiService: ApiServices
-)  {
+) {
     suspend fun getHospitalList(): Flow<ApiResponse<List<HospitalData>>> {
         return flow {
             try {
@@ -28,6 +28,8 @@ class HospitalRemoteDataSource @Inject constructor(
                     } else {
                         emit(ApiResponse.Empty)
                     }
+                } else {
+                    emit(ApiResponse.Error(response.message()))
                 }
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))

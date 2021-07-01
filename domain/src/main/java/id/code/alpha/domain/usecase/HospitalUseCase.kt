@@ -10,6 +10,13 @@ interface HospitalUseCase {
     fun getAllHospitals(): Flow<Resource<List<Hospital>>>
     fun getFavoriteHospitals(): Flow<List<Hospital>>
     suspend fun setFavoriteHospital(hospital: Hospital?): Hospital?
-    fun getHospital(isSaved: Boolean, textSearch: String?): LiveData<PagedList<Hospital>>
+    fun getHospital(
+        isSaved: Boolean,
+        textSearch: String?,
+        type: String? = "",
+        region: String? = ""
+    ): LiveData<PagedList<Hospital>>
+
     fun getReferenceHospitalType(): LiveData<PagedList<String>>
+    fun getProvinces(): LiveData<PagedList<String>>
 }

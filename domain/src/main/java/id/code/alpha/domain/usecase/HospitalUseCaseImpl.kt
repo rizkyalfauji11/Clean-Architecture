@@ -20,12 +20,21 @@ class HospitalUseCaseImpl @Inject constructor(private val repository: HospitalRe
         return repository.changeFavoriteHospitalState(hospital)
     }
 
-    override fun getHospital(isSaved: Boolean, textSearch: String?): LiveData<PagedList<Hospital>> {
-        return repository.getHospital(isSaved, textSearch)
+    override fun getHospital(
+        isSaved: Boolean,
+        textSearch: String?,
+        type: String?,
+        region: String?
+    ): LiveData<PagedList<Hospital>> {
+        return repository.getHospital(isSaved, textSearch, type, region)
     }
 
     override fun getReferenceHospitalType(): LiveData<PagedList<String>> {
         return repository.getReferenceHospitalType()
+    }
+
+    override fun getProvinces(): LiveData<PagedList<String>> {
+        return repository.getProvinces()
     }
 
 }

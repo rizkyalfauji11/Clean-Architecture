@@ -8,6 +8,7 @@ import dagger.multibindings.IntoMap
 import id.code.alpha.cleanarchitecture.screen.detail.fragment.DetailHospitalViewModel
 import id.code.alpha.cleanarchitecture.screen.dialog.FilterViewModel
 import id.code.alpha.cleanarchitecture.screen.main.home.HomeViewModel
+import id.code.alpha.cleanarchitecture.screen.map.MapsViewModel
 import id.code.alpha.cleanarchitecture.screen.splash.SplashScreenViewModel
 import id.code.alpha.cleanarchitecture.utils.ViewModelFactory
 
@@ -22,6 +23,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(HomeViewModel::class)
     abstract fun bindHomeViewModel(viewModel: HomeViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MapsViewModel::class)
+    abstract fun bindMapsViewModel(viewModel: MapsViewModel): ViewModel
 
     @Binds
     @IntoMap

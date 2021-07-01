@@ -31,4 +31,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/textReference" />
+
+    <TextView
+        android:id="@+id/textRegion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/main_padding"
+        android:paddingTop="@dimen/main_padding"
+        android:text="@string/region"
+        app:layout_constraintTop_toBottomOf="@id/rvReference"
+        tools:ignore="RtlSymmetry" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvRegion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/textRegion" />
 </androidx.constraintlayout.widget.ConstraintLayout>

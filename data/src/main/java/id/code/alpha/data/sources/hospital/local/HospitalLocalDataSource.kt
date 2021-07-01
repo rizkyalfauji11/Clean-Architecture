@@ -26,7 +26,9 @@ class HospitalLocalDataSource @Inject constructor(
 
     fun getHospital(
         isSaved: Boolean,
-        textSearch: String?
+        textSearch: String?,
+        type: String? = "",
+        region: String? = ""
     ): DataSource.Factory<Int, HospitalEntity> {
         return if (textSearch?.isNotEmpty() == true) {
             if (isSaved)
@@ -36,8 +38,13 @@ class HospitalLocalDataSource @Inject constructor(
         } else {
             if (isSaved)
                 hospitalDao.getHospitalFavorite(isSaved)
-            else
-                hospitalDao.getHospital()
+            else {
+                if (type?.isNotEmpty() == true || region?.isNotEmpty() == true)
+                    hospitalDao.getHospital(type, region)
+                else
+                    hospitalDao.getHospital()
+            }
+
         }
 
     }
@@ -46,5 +53,7 @@ class HospitalLocalDataSource @Inject constructor(
         return hospitalDao.getReferenceHospitalType()
     }
 
-
+    fun getProvinces(): DataSource.Factory<Int, String> {
+        return hospitalDao.getProvinces()
+    }
 }

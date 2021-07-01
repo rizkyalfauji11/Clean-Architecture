@@ -7,6 +7,7 @@ import id.code.alpha.cleanarchitecture.MyApplication
 import id.code.alpha.cleanarchitecture.base.BaseActivity
 import id.code.alpha.cleanarchitecture.databinding.ActivitySplashScreenBinding
 import id.code.alpha.cleanarchitecture.screen.main.MainActivity
+import id.code.alpha.cleanarchitecture.screen.map.MapsActivity
 import id.code.alpha.cleanarchitecture.utils.ViewModelFactory
 import id.code.alpha.cleanarchitecture.utils.startActivity
 import id.code.alpha.cleanarchitecture.utils.visible
@@ -33,7 +34,7 @@ class SplashScreenActivity : BaseActivity() {
             if (data != null) {
                 when (data) {
                     is Resource.Success<*> -> {
-                        startActivity(MainActivity::class.java)
+                        startActivity(MapsActivity::class.java)
                         finish()
                     }
 

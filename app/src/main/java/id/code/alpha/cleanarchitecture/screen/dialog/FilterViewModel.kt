@@ -6,4 +6,5 @@ import javax.inject.Inject
 
 class FilterViewModel @Inject constructor(private val useCase: HospitalUseCase) : ViewModel() {
     fun getReferenceHospitalType() = useCase.getReferenceHospitalType()
+    fun getRegion() = useCase.getProvinces()
 }
